@@ -1,0 +1,272 @@
+/* Menu Button */
+
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  .hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    background: #ffffff;
+    height: 2px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-underline-from-center:hover:before,
+   .hvr-underline-from-center:focus:before, 
+   .hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+  }
+  
+  .menuHolder {
+        z-index: 9999999999;
+      position:fixed;
+      top: 20px;
+      right:20px;
+  }
+  
+  .c-hamburger {
+    z-index: 9999999999;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 55px;
+    height: 55px;
+    font-size: 0;
+    text-indent: -9999px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+  }
+  
+  .c-hamburger:focus {
+    outline: none;
+  }
+  
+  .c-hamburger span {
+    display: block;
+    position: absolute;
+    top: 26px;
+    left: 16px;
+    right: 16px;
+    height: 3px;
+    background: white;
+  }
+  
+  .c-hamburger span::before,
+  .c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    content: "";
+  }
+  
+  .c-hamburger span::before {
+    top: -8px;
+  }
+  
+  .c-hamburger span::after {
+    bottom: -8px;
+  }
+  
+  /**
+   * Style 2
+   * 
+   * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+   * down to center and transform into an "x".
+   */
+  .c-hamburger--htx {
+    background-color: #ffdb4d;
+  }
+  
+  .c-hamburger--htx span {
+    -webkit-transition: "background" 0s 0.2s;
+            transition: "background" 0s 0.2s;
+  }
+  
+  .c-hamburger--htx span::before,
+  .c-hamburger--htx span::after {
+    -webkit-transition-duration: 0.7s, 0.7s;
+            transition-duration: 0.2s, 0.2s;
+    -webkit-transition-delay: 0.2s, 0s;
+            transition-delay: 0.2s, 0s;
+  }
+  
+  .c-hamburger--htx span::before {
+    -webkit-transition-property: top, -webkit-transform;
+            transition-property: top, transform;
+  }
+  
+  .c-hamburger--htx span::after {
+    -webkit-transition-property: bottom, -webkit-transform;
+            transition-property: bottom, transform;
+  }
+  
+  /* active state, i.e. menu open */
+  .c-hamburger--htx.is-active {
+    background-color: #ffdb4d;
+  }
+  
+  .c-hamburger--htx.is-active span {
+    background: none;
+  }
+  
+  .c-hamburger--htx.is-active span::before {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+  .c-hamburger--htx.is-active span::after {
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  
+ 
+  
+  
+  .link-list {
+      font-size:24px;
+      line-height:45px;
+      color:#ffffff;
+      letter-spacing:2px;
+      padding-top:90px;
+      padding-left:20%;
+  }
+  .link-list a:link {color:#ffffff; text-decoration:none;}
+  .link-list a:visited {color:#ffffff; text-decoration:none;}
+  .link-list a:hover {color:#ffffff; text-decoration:none;}
+  .link-list a:active {color:#ffffff; text-decoration:none;}
+  
+  .menu-button {
+      position: fixed;
+      top: 20px;
+      right:20px;
+      z-index: 9999999999;
+      padding: 0;
+      border: none;
+      color: #ffffff;
+      background-color:#ffdb4d;
+         width:49px;
+         height:49px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+  }
+  
+  .menu-button span {
+      display: none;
+  }
+  
+  .menu-button:hover {
+      cursor:pointer;
+  }
+  
+  /* Menu */
+  .menu-wrap {
+      position: fixed;
+      z-index: 9999999999;
+      background-color:#ffdb4d;
+      width: 400px;
+      height: 400px;
+      font-size: 1.5em;
+      top:0px;
+      right:0px;
+      -moz-border-bottom-left-radius: 400px;
+      border-bottom-left-radius: 400px;
+  }
+  
+  .menu {
+      height: 100%;
+      opacity: 1;
+      font-size: 0.5em;
+      color: #d6d6cf;
+      text-align: center;
+  }
+  
+  
+  /* Shown menu */
+  .show-menu .content::before {
+      opacity: 1;
+      -webkit-transition: opacity 0.3s;
+      transition: opacity 0.3s;
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+  }
+  
+  .show-menu .menu-wrap {
+      width: 500px !important;
+      height: 500px !important;
+      -moz-border-bottom-left-radius: 500px !important;
+      border-bottom-left-radius: 500px;
+      -webkit-animation: anim-jelly 0.8s linear forwards;
+      animation: anim-jelly 0.8s linear forwards;
+  }
+  
+  .show-menu .menu {
+      opacity: 1;
+      -webkit-transition: opacity 0.3s 0.3s;
+      transition: opacity 0.3s 0.3s;
+  }
+  
+  /* Generated with Bounce.js. Edit at http://goo.gl/PJ93gs */
+/*   
+  @media screen and (max-width: 400px) {
+  .c-hamburger {
+    width: 49px;
+    height: 49px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+  }
+  .menu-button {
+         width:35px;
+         height:35px;
+      -moz-border-radius: 22px;
+      border-radius: 22px;
+  }
+  .c-hamburger span {
+    top: 23px;
+    left: 14px;
+    right: 14px;
+    height: 3px;
+    background: white;
+  }
+  .show-menu .menu-wrap {
+      width: 400px;
+      height: 400px;
+  }
+  .link-list {
+      font-size:22px;
+      line-height:40px;
+      color:#ffffff;
+      letter-spacing:1px;
+      padding-top:65px;
+      padding-left:20%;
+  }
+  
+  } */
